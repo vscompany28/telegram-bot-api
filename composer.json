@@ -1,5 +1,5 @@
 {
-    "name": "telegram-bot/api",
+    "name": "vscompany28/telegram-bot-api",
     "description": "PHP Wrapper for Telegram Bot API",
     "keywords": [
         "php",
@@ -7,7 +7,7 @@
         "bot",
         "bot api"
     ],
-    "homepage": "https://github.com/TelegramBot/Api",
+    "homepage": "https://github.com/vscompany28/telegram-bot-api",
     "license": "MIT",
     "authors": [
         {
