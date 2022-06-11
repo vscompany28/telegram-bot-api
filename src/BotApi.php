@@ -2042,4 +2042,9 @@ class BotApi
     {
         $this->customCurlOptions = [];
     }
+
+    public function getToken(): string
+    {
+        return $this->token;
+    }
 }
