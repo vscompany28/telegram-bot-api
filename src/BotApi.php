@@ -2047,4 +2047,9 @@ class BotApi
     {
         return $this->token;
     }
+
+    public function getBotId(): string
+    {
+        return explode(':', $this->token)[0];
+    }
 }
