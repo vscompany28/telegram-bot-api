@@ -24,6 +24,8 @@ abstract class BaseType
      */
     protected static $map = [];
 
+    protected array $cleanData = [];
+
     /**
      * Validate input data
      *
@@ -89,11 +91,24 @@ abstract class BaseType
         if ($data === true) {
             return true;
         }
-        
+
         self::validate($data);
+
         $instance = new static();
         $instance->map($data);
 
+        $instance->setCleanData($data);
+
         return $instance;
+    }
+
+    public function getCleanData(): array
+    {
+        return $this->cleanData;
+    }
+
+    public function setCleanData(array $cleanData): void
+    {
+        $this->cleanData = $cleanData;
     }
 }
