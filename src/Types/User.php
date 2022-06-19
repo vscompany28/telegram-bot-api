@@ -14,6 +14,9 @@ use TelegramBot\Api\TypeInterface;
  */
 class User extends BaseType implements TypeInterface
 {
+    // VS
+    use UserVSTrait;
+
     /**
      * {@inheritdoc}
      *
