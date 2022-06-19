@@ -2,6 +2,8 @@
 
 namespace TelegramBot\Api\Types\InputMedia;
 
+use TelegramBot\Api\BotApi;
+
 /**
  * Class InputMediaPhoto
  * Represents a photo to be sent.
@@ -22,6 +24,6 @@ class InputMediaPhoto extends InputMedia
         $this->type = 'photo';
         $this->media = $media;
         $this->caption = $caption;
-        $this->parseMode = $parseMode;
+        $this->parseMode = $parseMode ?: BotApi::$defaultParseMode;
     }
 }

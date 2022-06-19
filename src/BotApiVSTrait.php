@@ -8,6 +8,8 @@ trait BotApiVSTrait
 {
     protected ?Closure $callResolver = null;
 
+    public static string $defaultParseMode = 'HTML';
+
     public function getToken(): string
     {
         return $this->token;

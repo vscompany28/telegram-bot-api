@@ -2,6 +2,8 @@
 
 namespace TelegramBot\Api\Types\InputMedia;
 
+use TelegramBot\Api\BotApi;
+
 /**
  * Class InputMediaVideo
  * Represents a video to be sent.
@@ -77,7 +79,7 @@ class InputMediaVideo extends InputMedia
         $this->type = 'video';
         $this->media = $media;
         $this->caption = $caption;
-        $this->parseMode = $parseMode;
+        $this->parseMode = $parseMode ?: BotApi::$defaultParseMode;
         $this->width = $width;
         $this->height = $height;
         $this->duration = $duration;

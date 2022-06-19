@@ -343,7 +343,7 @@ class BotApi
         return Message::fromResponse($this->call('sendMessage', [
             'chat_id' => $chatId,
             'text' => $text,
-            'parse_mode' => $parseMode,
+            'parse_mode' => $parseMode ?: self::$defaultParseMode,
             'disable_web_page_preview' => $disablePreview,
             'reply_to_message_id' => (int)$replyToMessageId,
             'reply_markup' => is_null($replyMarkup) ? $replyMarkup : $replyMarkup->toJson(),
@@ -386,7 +386,7 @@ class BotApi
             'from_chat_id' => $fromChatId,
             'message_id' => (int)$messageId,
             'caption' => $caption,
-            'parse_mode' => $parseMode,
+            'parse_mode' => $parseMode ?: self::$defaultParseMode,
             'caption_entities' => $captionEntities,
             'disable_notification' => (bool)$disableNotification,
             'reply_to_message_id' => (int)$replyToMessageId,
@@ -767,7 +767,7 @@ class BotApi
             'reply_markup' => is_null($replyMarkup) ? $replyMarkup : $replyMarkup->toJson(),
             'disable_notification' => (bool)$disableNotification,
             'supports_streaming' => (bool)$supportsStreaming,
-            'parse_mode' => $parseMode
+            'parse_mode' => $parseMode ?: self::$defaultParseMode
         ]));
     }
 
@@ -808,7 +808,7 @@ class BotApi
             'reply_to_message_id' => $replyToMessageId,
             'reply_markup' => is_null($replyMarkup) ? $replyMarkup : $replyMarkup->toJson(),
             'disable_notification' => (bool)$disableNotification,
-            'parse_mode' => $parseMode
+            'parse_mode' => $parseMode ?: self::$defaultParseMode
         ]));
     }
 
@@ -856,7 +856,7 @@ class BotApi
             'reply_markup' => is_null($replyMarkup) ? $replyMarkup : $replyMarkup->toJson(),
             'disable_notification' => (bool)$disableNotification,
             'allow_sending_without_reply' => $allowSendingWithoutReply,
-            'parse_mode' => $parseMode
+            'parse_mode' => $parseMode ?: self::$defaultParseMode
         ]));
     }
 
@@ -933,7 +933,7 @@ class BotApi
             'reply_to_message_id' => $replyToMessageId,
             'reply_markup' => is_null($replyMarkup) ? $replyMarkup : $replyMarkup->toJson(),
             'disable_notification' => (bool)$disableNotification,
-            'parse_mode' => $parseMode
+            'parse_mode' => $parseMode ?: self::$defaultParseMode
         ]));
     }
 
@@ -969,7 +969,7 @@ class BotApi
             'reply_to_message_id' => $replyToMessageId,
             'reply_markup' => is_null($replyMarkup) ? $replyMarkup : $replyMarkup->toJson(),
             'disable_notification' => (bool)$disableNotification,
-            'parse_mode' => $parseMode
+            'parse_mode' => $parseMode ?: self::$defaultParseMode
         ]));
     }
 
@@ -1006,7 +1006,7 @@ class BotApi
             'reply_to_message_id' => $replyToMessageId,
             'reply_markup' => is_null($replyMarkup) ? $replyMarkup : $replyMarkup->toJson(),
             'disable_notification' => (bool)$disableNotification,
-            'parse_mode' => $parseMode
+            'parse_mode' => $parseMode ?: self::$defaultParseMode
         ]));
     }
 
@@ -1219,7 +1219,7 @@ class BotApi
             'message_id' => $messageId,
             'text' => $text,
             'inline_message_id' => $inlineMessageId,
-            'parse_mode' => $parseMode,
+            'parse_mode' => $parseMode ?: self::$defaultParseMode,
             'disable_web_page_preview' => $disablePreview,
             'reply_markup' => is_null($replyMarkup) ? $replyMarkup : $replyMarkup->toJson(),
         ]));
@@ -1254,7 +1254,7 @@ class BotApi
             'inline_message_id' => $inlineMessageId,
             'caption' => $caption,
             'reply_markup' => is_null($replyMarkup) ? $replyMarkup : $replyMarkup->toJson(),
-            'parse_mode' => $parseMode
+            'parse_mode' => $parseMode ?: self::$defaultParseMode
         ]));
     }
 
