@@ -27,6 +27,9 @@ use TelegramBot\Api\Types\WebhookInfo;
  */
 class BotApi
 {
+    // VS
+    use BotApiVSTrait;
+
     /**
      * HTTP codes
      *
@@ -2041,15 +2044,5 @@ class BotApi
     public function resetCurlOptions()
     {
         $this->customCurlOptions = [];
-    }
-
-    public function getToken(): string
-    {
-        return $this->token;
-    }
-
-    public function getBotId(): string
-    {
-        return explode(':', $this->token)[0];
     }
 }

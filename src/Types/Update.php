@@ -18,6 +18,9 @@ use TelegramBot\Api\Types\Payments\Query\ShippingQuery;
  */
 class Update extends BaseType implements TypeInterface
 {
+    // VS
+    use UpdateVSTrait;
+
     /**
      * {@inheritdoc}
      *
@@ -151,19 +154,10 @@ class Update extends BaseType implements TypeInterface
     public function getMessage()
     {
         return $this->message
+            // VS
             ?? $this->getEditedMessage()
             ?? $this->getChannelPost()
             ?? $this->getEditedChannelPost();
-    }
-
-    public function isEdited(): bool
-    {
-        return $this->getEditedMessage() || $this->getEditedChannelPost();
-    }
-
-    public function isChannelPost(): bool
-    {
-        return $this->getChannelPost() || $this->getEditedChannelPost();
     }
 
     /**

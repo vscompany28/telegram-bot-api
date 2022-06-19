@@ -10,6 +10,9 @@ namespace TelegramBot\Api;
  */
 abstract class BaseType
 {
+    // VS
+    use BaseTypeVSTrait;
+
     /**
      * Array of required data params for type
      *
@@ -23,8 +26,6 @@ abstract class BaseType
      * @var array
      */
     protected static $map = [];
-
-    protected array $cleanData = [];
 
     /**
      * Validate input data
@@ -97,18 +98,9 @@ abstract class BaseType
         $instance = new static();
         $instance->map($data);
 
+        // VS
         $instance->setCleanData($data);
 
         return $instance;
-    }
-
-    public function getCleanData(): array
-    {
-        return $this->cleanData;
-    }
-
-    public function setCleanData(array $cleanData): void
-    {
-        $this->cleanData = $cleanData;
     }
 }
