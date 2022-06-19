@@ -215,6 +215,11 @@ class BotApi
      */
     public function call($method, array $data = null, $timeout = 10)
     {
+        // VS
+        if ($callResolver = $this->callResolver) {
+            return $callResolver();
+        }
+
         $options = $this->proxySettings + [
             CURLOPT_URL => $this->getUrl().'/'.$method,
             CURLOPT_RETURNTRANSFER => true,
