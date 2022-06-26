@@ -6,7 +6,7 @@ use Closure;
 
 trait BotApiVSTrait
 {
-    protected ?Closure $callResolver = null;
+    protected static ?Closure $callResolver = null;
 
     public static string $defaultParseMode = 'HTML';
 
@@ -20,8 +20,8 @@ trait BotApiVSTrait
         return explode(':', $this->token)[0];
     }
 
-    public function setCallResolver(?Closure $callResolver): void
+    public static function setCallResolver(?Closure $callResolver): void
     {
-        $this->callResolver = $callResolver;
+        static::$callResolver = $callResolver;
     }
 }

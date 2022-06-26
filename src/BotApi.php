@@ -216,7 +216,7 @@ class BotApi
     public function call($method, array $data = null, $timeout = 10)
     {
         // VS
-        if ($callResolver = $this->callResolver) {
+        if ($callResolver = static::$callResolver) {
             return $callResolver($method, $data, $timeout);
         }
 
