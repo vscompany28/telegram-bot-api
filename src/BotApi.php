@@ -249,15 +249,15 @@ class BotApi
                 throw new Exception($response['description'], $response['error_code']);
             }
 
+            // VS
+            static::$cache?->put($method, $data, $response['result']);
+
             return $response['result'];
         }
 
         if (!$response->ok) {
             throw new Exception($response->description, $response->error_code);
         }
-
-        // VS
-        static::$cache?->put($method, $data, $response->value);
 
         return $response->result;
     }
