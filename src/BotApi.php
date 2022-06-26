@@ -217,7 +217,7 @@ class BotApi
     {
         // VS
         if ($callResolver = $this->callResolver) {
-            return $callResolver();
+            return $callResolver($method, $data, $timeout);
         }
 
         $options = $this->proxySettings + [
