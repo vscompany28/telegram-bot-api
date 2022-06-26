@@ -215,10 +215,15 @@ class BotApi
      */
     public function call($method, array $data = null, $timeout = 10)
     {
-        // VS
+        // VS >>
         if ($callResolver = static::$callResolver) {
             return $callResolver($method, $data, $timeout);
         }
+
+        if ($cachedValue = static::$cache?->get($method, $data)) {
+            return $cachedValue;
+        }
+        // VS <<
 
         $options = $this->proxySettings + [
             CURLOPT_URL => $this->getUrl().'/'.$method,
@@ -250,6 +255,9 @@ class BotApi
         if (!$response->ok) {
             throw new Exception($response->description, $response->error_code);
         }
+
+        // VS
+        static::$cache?->put($method, $data, $response->value);
 
         return $response->result;
     }

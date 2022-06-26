@@ -7,6 +7,7 @@ use Closure;
 trait BotApiVSTrait
 {
     protected static ?Closure $callResolver = null;
+    protected static ?BotApiCacheInterface $cache = null;
 
     public static string $defaultParseMode = 'HTML';
 
@@ -23,5 +24,10 @@ trait BotApiVSTrait
     public static function setCallResolver(?Closure $callResolver): void
     {
         static::$callResolver = $callResolver;
+    }
+
+    public static function setCache(BotApiCacheInterface $cache): void
+    {
+        static::$cache = $cache;
     }
 }
