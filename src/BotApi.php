@@ -216,11 +216,11 @@ class BotApi
     public function call($method, array $data = null, $timeout = 10)
     {
         // VS >>
-        if ($callResolver = static::$callResolver) {
+        if ($callResolver = $this->callResolver) {
             return $callResolver($method, $data, $timeout);
         }
 
-        if ($cachedValue = static::$cache?->get($method, $data)) {
+        if ($cachedValue = $this->cache?->get($method, $data)) {
             return $cachedValue;
         }
         // VS <<
@@ -250,7 +250,7 @@ class BotApi
             }
 
             // VS
-            static::$cache?->put($method, $data, $response['result']);
+            $this->cache?->put($method, $data, $response['result']);
 
             return $response['result'];
         }
