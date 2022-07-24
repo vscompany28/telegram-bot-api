@@ -26,6 +26,11 @@ trait BotApiVSTrait
         $this->callResolver = $callResolver;
     }
 
+    public function getCallResolver(): ?Closure
+    {
+        return $this->callResolver;
+    }
+
     public function setCache(BotApiCacheInterface $cache): void
     {
         $this->cache = $cache;
