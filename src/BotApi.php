@@ -217,7 +217,7 @@ class BotApi
     {
         // VS >>
         if ($callResolver = $this->callResolver) {
-            return $callResolver($method, $data, $timeout);
+            return $callResolver->call($method, $data, $timeout);
         }
 
         if ($cachedValue = $this->cache?->get($method, $data)) {

@@ -2,11 +2,9 @@
 
 namespace TelegramBot\Api;
 
-use Closure;
-
 trait BotApiVSTrait
 {
-    protected ?Closure $callResolver = null;
+    protected ?BotApiCallResolverInterface $callResolver = null;
     protected ?BotApiCacheInterface $cache = null;
 
     public static string $defaultParseMode = 'HTML';
@@ -21,12 +19,12 @@ trait BotApiVSTrait
         return explode(':', $this->token)[0];
     }
 
-    public function setCallResolver(?Closure $callResolver): void
+    public function setCallResolver(?BotApiCallResolverInterface $callResolver): void
     {
         $this->callResolver = $callResolver;
     }
 
-    public function getCallResolver(): ?Closure
+    public function getCallResolver(): ?BotApiCallResolverInterface
     {
         return $this->callResolver;
     }
